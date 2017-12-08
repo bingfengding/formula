@@ -30,7 +30,7 @@ $(function () {
     });
     var arr = [];
     var arr1 = [];
-    var arr2 =[];
+
     $(".sure").click(function () {
         var lenProvince=$(".province").length;
         var address = $(".address").val();
@@ -41,19 +41,20 @@ $(function () {
             console.log(arrPreovince);
             arr[i] = arrPreovince;
             var lenWeight=$(".province").eq(i).parent().find(".box_weight").length;
+            var arr2=[];
             for(var j=0;j<lenWeight;j++){
                 var arrAll = [];
                 arrAll[0]= $(".province").eq(i).parent().find(".box_weight").eq(j).val();
                 arrAll[1]= $(".province").eq(i).parent().find(".box_money").eq(j).val();
-                arr2[j] = arrAll;
+               arr2[j]=arrAll;
             }
-            arr1[i] =arr2;
+            arr1[i]=arr2;
         }
         console.log(address);
         console.log(moneyAdd);
         console.log(arr);
         console.log(arr1);
-        var string="";
+        var string="=";
             for(var i=0;i<arr.length;i++){
                if(i==arr.length-1){
                    string+= "IF(OR(";
@@ -72,10 +73,10 @@ $(function () {
                        console.log(k);
                        string += "\,if\("+moneyAdd+ "\<\=" +arr1[i][k][0]+"\,"+arr1[i][k][1];
                    }
-                   for(var k=0;k<arr1[i].length;k++){
+                   for(var l=0;l<arr1[i].length;l++){
                        string+=")";
                    }
-                   for(var k=0;k<=arr.length-1;k++){
+                   for(var n=0;n<=arr.length-1;n++){
                        string+=")";
                    }
                    console.log(string);
@@ -93,11 +94,14 @@ $(function () {
                         console.log(string);
                     }
                 }
+                console.log(arr1);
                 for(var k=0;k<arr1[i].length;k++){
-                    console.log(k);
+                    console.log(string);
                    string += "\,if\("+moneyAdd+ "\<\=" +arr1[i][k][0]+"\,"+arr1[i][k][1];
+                   console.log(arr1[i][k]);
                 }
-                for(var k=0;k<arr1[i].length;k++){
+
+                for(var l=0;l<arr1[i].length;l++){
                     string+=")";
                 }
                 string+=",";
