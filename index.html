@@ -47,6 +47,24 @@
             color:red;
 
         }
+        .container {position:absolute; display:none; padding-left:10px;}
+        .shadow {float:left;}
+        .frame {position:relative; background:#ffc; padding:6px; display:block;
+            -moz-box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.6);
+            -webkit-box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.6);
+            box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.6);
+            overflow: hidden;
+            width:310px
+        }
+        .clear {clear:left;}
+        label,a {font-size:13px;color:#4f6b72;}
+        #language {font-size:13px;color:#4f6b72;border:1px solid #4f6b72;height:20px;}
+        div.frame div {margin-bottom:5px; float:left}
+        div.frame div.foot {margin-top:15px; text-agiln:right; margin-right:20px; float:right}
+        div.frame div.foot.a{margin-right:20px}
+        div.frame label {margin: 0 10px 0 5px;}
+        div.frame a:link,div.frame span a:visited {
+            text-decoration:none; margin:0 8px;
     </style>
 </head>
 <body>
@@ -78,7 +96,8 @@
     <span>输入excel表格里面价格对应点例如：B1</span><input type="text" class="moneyAdd">
 </div>
 <div class="box">
-    <span>省份:</span><input type="text" class="province">
+    <span>省份:</span><input type="text" name="taskPlanDay"  style="width: 150px" class="province inputxt taskPlanDay"
+                           datatype="*">
     <input type="button" value="添加新的省份" class="newProvince"><input type="button" value="删除当前省份" class="deleteProvince"  >
     <div class="box_n">
         <span>输入重量:</span><input type="text" class="box_weight">
@@ -87,6 +106,48 @@
         <input type="button" value="删除当前重量" class="deleteWeight" >
     </div>
 
+</div>
+<div class="container">
+    <div class="shadow">
+        <div class="frame">
+            <div><input type="checkbox" id="location01"/><label for="location01">北京</label></div>
+            <div><input type="checkbox" id="location02"/><label for="location02">天津</label></div>
+            <div><input type="checkbox" id="location03"/><label for="location03">上海</label></div>
+            <div><input type="checkbox" id="location04"/><label for="location04">重庆</label></div>
+            <div><input type="checkbox" id="location05"/><label for="location05">河北</label></div>
+            <div><input type="checkbox" id="location06"/><label for="location06">山西</label></div>
+            <div><input type="checkbox" id="location07"/><label for="location07">辽宁</label></div>
+            <div><input type="checkbox" id="location08"/><label for="location08">吉林</label></div>
+            <div><input type="checkbox" id="location10"/><label for="location10">江苏</label></div>
+            <div><input type="checkbox" id="location11"/><label for="location11">浙江</label></div>
+            <div><input type="checkbox" id="location12"/><label for="location12">安徽</label></div>
+            <div><input type="checkbox" id="location13"/><label for="location13">福建</label></div>
+            <div><input type="checkbox" id="location14"/><label for="location14">江西</label></div>
+            <div><input type="checkbox" id="location15"/><label for="location15">山东</label></div>
+            <div><input type="checkbox" id="location16"/><label for="location16">河南</label></div>
+            <div><input type="checkbox" id="location17"/><label for="location17">湖北</label></div>
+            <div><input type="checkbox" id="location18"/><label for="location18">湖南</label></div>
+            <div><input type="checkbox" id="location19"/><label for="location19">广东</label></div>
+            <div><input type="checkbox" id="location20"/><label for="location20">海南</label></div>
+            <div><input type="checkbox" id="location21"/><label for="location21">四川</label></div>
+            <div><input type="checkbox" id="location22"/><label for="location22">贵州</label></div>
+            <div><input type="checkbox" id="location23"/><label for="location23">云南</label></div>
+            <div><input type="checkbox" id="location24"/><label for="location24">陕西</label></div>
+            <div><input type="checkbox" id="location25"/><label for="location25">甘肃</label></div>
+            <div><input type="checkbox" id="location26"/><label for="location26">青海</label></div>
+            <div><input type="checkbox" id="location28"/><label for="location28">广西</label></div>
+            <div><input type="checkbox" id="location29"/><label for="location29">西藏</label></div>
+            <div><input type="checkbox" id="location30"/><label for="location30">宁夏</label></div>
+            <div><input type="checkbox" id="location31"/><label for="location31">新疆</label></div>
+            <div><input type="checkbox" id="location09"/><label for="location09">黑龙江</label></div>
+            <div><input type="checkbox" id="location27"/><label for="location27">内蒙古</label></div>
+            <div class="foot" style="text-agiln:right" style="margin:0 8px">
+                <a href="#" id="submit" margin-right:20px>确定</a>
+                <a href="#" id="close" margin-right:20px>取消</a>
+            </div>
+
+        </div>
+    </div>
 </div>
 </body>
 </html>

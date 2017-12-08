@@ -105,14 +105,48 @@ $(function () {
                     string+=")";
                 }
                 string+=",";
-                console.log(string);
                }
             }
         $(".formula").val(string);
 
-    })
+    });
+    var _this;
+    $('.taskPlanDay').bind('focus', function() {
+        _this = this;
+        var offset = $(this).offset(), container = $('div.container');
+        container.css({top:offset.top+Number($(this).css('height').replace('px', '')), left:offset.left}).show(100);
+    });
+    $(document).bind('click', function(){
+        var targ;
+        if (event.target) {
+            targ = event.target;
+        }
+        else if (event.srcElement) {
+            targ = event.srcElement;
+        }
+        if (targ.nodeType == 3) // defeat Safari bug
+        {
+            targ = targ.parentNode;
+        }
 
-
+        if (targ.className.indexOf("taskPlanDay")==-1 && !$(targ).parents('div.container').attr('class'))
+        {
+            $('div.container').hide(100);
+        }
+    });
+    $('#submit').bind('click', function(){
+        var vals = '', length;
+        $('div.frame input[type=checkbox]:checked').each(function(){
+            vals += ($(this).next().text() + ',');
+        });
+        if ((length = vals.length) > 0) vals = vals.substr(0, length -1);
+        console.log(this);
+        $(_this).val(vals);
+        $('div.container').hide(100);
+    });
+    $('#close').bind('click', function(){
+        $('div.container').hide(100);
+    });
 
 
 
