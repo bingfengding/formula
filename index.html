@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="./jquery-3.2.1.min.js"></script>
+    <script src="index.js"></script>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        .text{
+            position: fixed;
+            top: 10%;
+            left: 60%;
+        }
+        .formula{
+            width: 500px;
+            height: 500px;
+        }
+        .sure{
+            display: block;
+        }
+        .show{
+            display: inline-block !important;
+        }
+        .hide{
+            display:none;
+        }
+        .first{
+            padding-left: 100px;
+            padding-top: 30px;
+        }
+        .prompt{
+            padding-left: 50px;
+            width: 400px;
+        }
+        .excel{
+            padding:30px 0 10px 30px;
+
+        }
+        .box{
+            padding: 10px 10px 20px 30px;
+        }
+        .province{
+            color:red;
+        }
+    </style>
+</head>
+<body>
+<div class="first">
+    <span>注意事项</span><input type="button" value="点击显示" class="button">
+</div>
+<div class="hide prompt">
+    <p>省份输入不要存在空格，多个省份用 "," 逗号隔开</p>
+    <hr>
+    <p>重量那里直接输入最大值，例如0-1KG，输入 1 就好，默认最大值包含在前面的区间</p>
+    <hr>
+    <p>如果某个数值一样的为特定价格，建议输入个最大值，例如99999</p>
+    <hr>
+    <p>公式输入乘号用 * 代替不要用中文的乘号 例如 首重+重量*价格</p>
+    <hr>
+    <p>默认不会自动入上去，需要自动入上去的自行添加例如 价格里面输入： 7+roundup(6*I2,0)</p>
+    <hr>
+    <p>务必重量排序从低到高依次排序，例如第一个里面填写1，第二个里面填写3，第三个填写5。</p>
+</div>
+
+<div class="text">
+    <input type="button" class="sure" value="提交生成代码">
+    <textarea class="formula">
+    </textarea>
+</div>
+<div class="excel">
+    <span>输入excel表格里面地址对应点例如：A1</span><input type="text" class="address">
+    <br>
+    <span>输入excel表格里面价格对应点例如：B1</span><input type="text" class="moneyAdd">
+</div>
+<div class="box">
+    <span>省份:</span><input type="text" class="province">
+    <input type="button" value="添加新的省份" class="newProvince"><input type="button" value="删除当前省份" class="deleteProvince"  >
+    <div class="box_n">
+        <span>输入重量:</span><input type="text" class="box_weight">
+        <span>输入价格:</span><input type="text" class="box_money">
+        <input type="button" value="添加新的重量" class="newWeight">
+        <input type="button" value="删除当前重量" class="deleteWeight" >
+    </div>
+
+</div>
+</body>
+</html>
