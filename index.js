@@ -70,7 +70,6 @@ $(function () {
                        }
                    }
                    for(var k=0;k<arr1[i].length;k++){
-                       console.log(k);
                        string += "\,if\("+moneyAdd+ "\<\=" +arr1[i][k][0]+"\,"+arr1[i][k][1];
                    }
                    for(var l=0;l<arr1[i].length;l++){
@@ -112,6 +111,7 @@ $(function () {
     });
     var _this;
     $('.taskPlanDay').bind('focus', function() {
+        console.log($("div.frame input[type=checkbox]:checked").prop("checked",false));
         _this = this;
         var offset = $(this).offset(), container = $('div.container');
         container.css({top:offset.top+Number($(this).css('height').replace('px', '')), left:offset.left}).show(100);
@@ -136,18 +136,22 @@ $(function () {
     });
     $('#submit').bind('click', function(){
         var vals = '', length;
+
         $('div.frame input[type=checkbox]:checked').each(function(){
             vals += ($(this).next().text() + ',');
         });
         if ((length = vals.length) > 0) vals = vals.substr(0, length -1);
         console.log(this);
+
         $(_this).val(vals);
         $('div.container').hide(100);
     });
     $('#close').bind('click', function(){
         $('div.container').hide(100);
     });
-
+    $('#all').click(function () {
+        $('div.frame :checkbox').prop('checked',true);
+    })
 
 
 
