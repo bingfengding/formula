@@ -151,15 +151,7 @@ $(function () {
     });
     $('#all').click(function () {
         $('div.frame :checkbox').prop('checked',true);
-    })
-
-
-
-
-
-
-
-
+    });
 
 
 });
