@@ -106,6 +106,7 @@ $(function () {
                 string+=",";
                }
             }
+            string.replace(/（(.*)）(.*)，(.*)/g,"$1\($2\)$1\,");
         $(".formula").val(string);
 
     });
@@ -152,6 +153,5 @@ $(function () {
     $('#all').click(function () {
         $('div.frame :checkbox').prop('checked',true);
     });
-
 
 });
