@@ -11,16 +11,24 @@ $(function () {
 
     $(".newProvince").click(function () {
         $(".box").eq(0).clone(true).appendTo("body").children(".deleteProvince").addClass("show");
+        onkeypress();
     });
     $(".newWeight").click(function () {
         var boxNW = $(this).parent().parent();
         $(".box_n").eq(0).clone(true).appendTo(boxNW).children(".deleteWeight").addClass("show");
+
+        boxNW.children('.box_weight').eq($('.box_weight').length-1).val("");
+        boxNW.children('.box_money').eq($('.box_money').length-1).val("");
+        boxNW.children('div.box_n:last-child').children('input[type=text]').val("");
+        onkeypress();
     });
     $(".deleteProvince").click(function () {
         $(this).parent().remove();
+        onkeypress();
     });
     $(".deleteWeight").click(function () {
         $(this).parent().remove();
+        onkeypress();
     });
     $(".deleteWeight").eq(0).css({
         display:"none"
@@ -112,7 +120,7 @@ $(function () {
     });
     var _this;
     $('.taskPlanDay').bind('focus', function() {
-        console.log($("div.frame input[type=checkbox]:checked").prop("checked",false));
+        $("div.frame input[type=checkbox]:checked").prop("checked",false);
         _this = this;
         var offset = $(this).offset(), container = $('div.container');
         container.css({top:offset.top+Number($(this).css('height').replace('px', '')), left:offset.left}).show(100);
@@ -153,5 +161,29 @@ $(function () {
     $('#all').click(function () {
         $('div.frame :checkbox').prop('checked',true);
     });
+    function onkeypress() {
+        var inputs = $('input[type=text]');
+
+        inputs.keypress(function () {
+            if(event.keyCode==13){
+                for(var i=0;i<inputs.length;i++){
+                    if(i==(inputs.length-1)){
+                        inputs[0].focus();
+                        break;
+                    }else if(this == inputs[i]){
+                        inputs[i+1].focus();
+                        break;
+                    }
+                    if($(this).hasClass('taskPlanDay')){
+                        $('.container').hide(100);
+                    }
+                }
+            }
+
+
+        });
+    }
+    onkeypress();
+
 
 });
