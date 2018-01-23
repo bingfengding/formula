@@ -22,6 +22,7 @@ $(function () {
         boxNW.children('div.box_n:last-child').children('input[type=text]').val("");
         onkeypress();
     });
+
     $(".deleteProvince").click(function () {
         $(this).parent().remove();
         onkeypress();
